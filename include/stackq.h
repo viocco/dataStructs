@@ -30,7 +30,7 @@ public:
         }
     }
 
-    void push(T obj){
+    void push(const T& obj){
         if(isFull())
             throw "enqueueing onto full queue: Overflow!";
         else{

@@ -43,7 +43,7 @@ public:
         }
     }
 
-    void enqueue(T obj){
+    void enqueue(const T& obj){
         if(isFull())
             throw "enqueueing onto full queue: Overflow!";
         else{

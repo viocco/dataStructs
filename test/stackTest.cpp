@@ -76,26 +76,3 @@ int main(int argc, char **argv)
     int ret = RUN_ALL_TESTS();
     return ret;
 }
-
-// DEFAULT CONSTRUCTOR EXISTS, UNTIL YOU INCLUDE 1 non-default constructor.
-// Many operators depend on default constructor, such as [].
-
-/*
- * Differences between array and pointer:
- *  1.  T* arr = new T[n];
- *      T* actual_arr[n];
- *      sizeof(arr) = 8 (because its a pointer);
- *      sizeof(actual_arr) = n*sizeof(T);
- *
- *      REASON: arr and actual_arr both point to first element of arr, but under hood actual_arr has more going on
- *      IMPLICATION: sizeof(actual_arr)/sizeof(T) = n (size of array) only if declared as arr not pointer
- *      IMPLICATION: Dynamically allocated arrays must be done the first way because can't have non-integer at compile time
- *                   for array.
- * 2.  Second type has fixed address, can't assign actual_arr to a different address.
- *
- *
- */
-
-//To consider making for each class: default constructor/(for arr), copy constructor (for =)
-//Things to learn: 1) assignment vs copy constructor and when used
-//double pointers and initializing (new type[][] vs new type*[])

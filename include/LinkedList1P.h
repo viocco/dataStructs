@@ -27,7 +27,7 @@ public:
         }
     };
 
-    void insert(T obj){
+    void insert(const T& obj){
         Node* new_head = new Node(obj);
         if (length == 0){
             head = new_head;
@@ -153,10 +153,6 @@ private:
         Node(T obj){
             this->obj = obj;
             np = nullptr;
-        }
-
-        ~Node(){
-            delete obj;
         }
 
         bool operator == (Node& rhs){

@@ -22,7 +22,7 @@ public:
         }
     };
 
-    void insert(T obj){
+    void insert(const T& obj){
         Node* n = new Node(obj);
         if (length != 0){
             head->prev = n;
@@ -49,7 +49,7 @@ public:
         return temp->obj;
     }
 
-    void insertLast(T obj){
+    void insertLast(const T& obj){
         Node *n = new Node(obj);
         if (length != 0){
             n->prev = tail;
@@ -76,7 +76,7 @@ public:
         return temp->obj;
     }
 
-    void insertAfter(int index, T obj){
+    void insertAfter(int index, const T& obj){
         Node *nd = new Node(obj);
         Node *curr = head;
         while(index > 0){

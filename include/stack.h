@@ -34,7 +34,7 @@ public:
         }
     }
 
-    void push(T obj){
+    void push(const T& obj){
         if(isFull())
             throw "Pushing onto full stack: Overflow!";
         else{
