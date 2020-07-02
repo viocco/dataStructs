@@ -38,8 +38,12 @@ class ArrayList {
 
         void push_back(const T &obj){
             if (size == capacity) {
-                delete arr;
-                arr = new T[capacity*2];
+                T* new_arr = new T[capacity*2];
+                for (int i = 0; i < capacity;i++){
+                    new_arr[i] = arr[i];
+                }
+                delete [] arr;
+                arr = new_arr;
                 capacity = capacity * 2;
             }
             arr[size] = obj;
