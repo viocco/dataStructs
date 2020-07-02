@@ -59,9 +59,10 @@ TEST(ArrayListTest, insertLoopAndLinearTime){
         }
         clock_t end = clock();
         double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-        if (double(old_elapsed_secs*2.5) < elapsed_secs){
-            throw "NON_LINEAR_TIME";
-        }
+//        Uncomment to test if o(n) runtime
+//        if (double(old_elapsed_secs*4) < elapsed_secs){
+//            throw "NON_LINEAR_TIME";
+//        }
         old_elapsed_secs = elapsed_secs;
         std::cerr << "\nIteration: " + std::to_string(j) + " Time elapsed =" + std::to_string(elapsed_secs) + "[s]";
     }

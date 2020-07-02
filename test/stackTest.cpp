@@ -9,6 +9,7 @@ TEST(stackTest, initStack){
     stack<int> *s1 = new stack<int>(1);
     ASSERT_FALSE(s1->isFull());
     ASSERT_TRUE(s1->isEmpty());
+    delete s1;
 }
 
 TEST(stackTest, stackPush){
@@ -16,6 +17,7 @@ TEST(stackTest, stackPush){
     s1->push(5);
     ASSERT_FALSE(s1->isEmpty());
     ASSERT_FALSE(s1->isFull());
+    delete s1;
 }
 
 
@@ -23,6 +25,7 @@ TEST (stackTest, stackPop){
     stack<int> *s1 = new stack<int>(100);
     s1->push(5);
     ASSERT_EQ(s1->pop(),5);
+    delete s1;
 }
 
 TEST (stackTest, stackFull){
@@ -33,6 +36,7 @@ TEST (stackTest, stackFull){
     }
     s1->push(5);
     ASSERT_TRUE(s1->isFull());
+    delete s1;
 }
 
 TEST (stackTest, involved1){
@@ -54,6 +58,7 @@ TEST (stackTest, involved1){
         ASSERT_EQ(i,first);
         ASSERT_EQ(first,second);
     }
+    delete s1;
 }
 
 TEST (stackTest, involved2){
@@ -68,6 +73,7 @@ TEST (stackTest, involved2){
     for (int i = 9; i >= 5; i--){
         ASSERT_EQ(s1->pop(),std::vector<int> (100,i));
     }
+    delete s1;
 }
 
 int main(int argc, char **argv)

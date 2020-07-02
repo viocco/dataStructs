@@ -11,6 +11,7 @@ TEST(queueLLTest, initQueue){
     queueLL<int> *q1 = new queueLL<int>();
     ASSERT_FALSE(q1->isFull());
     ASSERT_TRUE(q1->isEmpty());
+    delete q1;
 }
 
 TEST(queueLLTest, queueEnqueue){
@@ -18,6 +19,7 @@ TEST(queueLLTest, queueEnqueue){
     q1->enqueue(5);
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_FALSE(q1->isFull());
+    delete q1;
 }
 
 
@@ -25,6 +27,7 @@ TEST (queueLLTest, queueDequeue){
     queueLL<int> *q1 = new queueLL<int>();
     q1->enqueue(5);
     ASSERT_EQ(q1->dequeue(),5);
+    delete q1;
 }
 
 TEST (queueLLTest, queueFull){
@@ -34,6 +37,7 @@ TEST (queueLLTest, queueFull){
         ASSERT_FALSE(q1->isFull());
     }
     q1->enqueue(5);
+    delete q1;
 }
 
 TEST (queueLLTest, involved1){
@@ -44,6 +48,7 @@ TEST (queueLLTest, involved1){
     for (int i = 0; i < 10 ;i++){
         ASSERT_EQ(q1->dequeue(),i);
     }
+    delete q1;
 }
 
 TEST (queueLLTest, involved3){
@@ -57,6 +62,7 @@ TEST (queueLLTest, involved3){
     for (int i = 0; i < 5; i++){
         ASSERT_EQ(q1->dequeue(),std::vector<int>(100,i));
     }
+    delete q1;
 }
 
 TEST (queueLLTest, wrapAround){
@@ -78,7 +84,7 @@ TEST (queueLLTest, wrapAround){
         ASSERT_EQ(q1->dequeue(),i);
     }
     ASSERT_TRUE(q1->isEmpty());
-
+    delete q1;
 }
 
 TEST (queueLLTest, equalQueues){
@@ -122,6 +128,8 @@ TEST (queueLLTest, equalQueues){
     }
     ASSERT_TRUE(q2->isEmpty());
     ASSERT_TRUE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 TEST (queueLLTest, equalQueues2){
@@ -157,6 +165,8 @@ TEST (queueLLTest, equalQueues2){
     ASSERT_FALSE(q1->isFull());
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_TRUE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 TEST (queueLLTest, unequalQueues){
@@ -191,6 +201,8 @@ TEST (queueLLTest, unequalQueues){
     ASSERT_FALSE(q1->isFull());
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_FALSE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 

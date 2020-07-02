@@ -11,6 +11,7 @@ TEST(queueTest, initQueue){
     queue<int> *q1 = new queue<int>(1);
     ASSERT_FALSE(q1->isFull());
     ASSERT_TRUE(q1->isEmpty());
+    delete q1;
 }
 
 TEST(queueTest, queueEnqueue){
@@ -18,6 +19,7 @@ TEST(queueTest, queueEnqueue){
     q1->enqueue(5);
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_FALSE(q1->isFull());
+    delete q1;
 }
 
 
@@ -25,6 +27,7 @@ TEST (queueTest, queueDequeue){
     queue<int> *q1 = new queue<int>(100);
     q1->enqueue(5);
     ASSERT_EQ(q1->dequeue(),5);
+    delete q1;
 }
 
 TEST (queueTest, queueFull){
@@ -35,6 +38,7 @@ TEST (queueTest, queueFull){
     }
     q1->enqueue(5);
     ASSERT_TRUE(q1->isFull());
+    delete q1;
 }
 
 TEST (queueTest, involved1){
@@ -45,6 +49,7 @@ TEST (queueTest, involved1){
     for (int i = 0; i < 10 ;i++){
         ASSERT_EQ(q1->dequeue(),i);
     }
+    delete q1;
 }
 
 TEST (queueTest, involved3){
@@ -58,6 +63,7 @@ TEST (queueTest, involved3){
     for (int i = 0; i < 5; i++){
         ASSERT_EQ(q1->dequeue(),std::vector<int>(100,i));
     }
+    delete q1;
 }
 
 TEST (queueTest, wrapAround){
@@ -80,7 +86,7 @@ TEST (queueTest, wrapAround){
         ASSERT_EQ(q1->dequeue(),i);
     }
     ASSERT_TRUE(q1->isEmpty());
-
+    delete q1;
 }
 
 TEST (queueTest, equalQueues){
@@ -126,6 +132,8 @@ TEST (queueTest, equalQueues){
     }
     ASSERT_TRUE(q2->isEmpty());
     ASSERT_TRUE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 TEST (queueTest, equalQueues2){
@@ -163,6 +171,8 @@ TEST (queueTest, equalQueues2){
     ASSERT_FALSE(q1->isFull());
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_TRUE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 TEST (queueTest, unequalQueues){
@@ -199,6 +209,8 @@ TEST (queueTest, unequalQueues){
     ASSERT_FALSE(q1->isFull());
     ASSERT_FALSE(q1->isEmpty());
     ASSERT_FALSE(*q1 == *q2);
+    delete q1;
+    delete q2;
 }
 
 

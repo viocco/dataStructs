@@ -9,6 +9,7 @@ TEST(stackqTest, initStack){
     stackq<int> *s1 = new stackq<int>(1);
     ASSERT_FALSE(s1->isFull());
     ASSERT_TRUE(s1->isEmpty());
+    delete s1;
 }
 
 TEST(stackqTest, stackqPush){
@@ -16,6 +17,7 @@ TEST(stackqTest, stackqPush){
     s1->push(5);
     ASSERT_FALSE(s1->isEmpty());
     ASSERT_FALSE(s1->isFull());
+    delete s1;
 }
 
 
@@ -23,6 +25,7 @@ TEST (stackqTest, stackqPop){
     stackq<int> *s1 = new stackq<int>(100);
     s1->push(5);
     ASSERT_EQ(s1->pop(),5);
+    delete s1;
 }
 
 TEST (stackqTest, stackqFull){
@@ -33,6 +36,7 @@ TEST (stackqTest, stackqFull){
     }
     s1->push(5);
     ASSERT_TRUE(s1->isFull());
+    delete s1;
 }
 
 TEST (stackqTest, pushAndPop){
@@ -43,6 +47,7 @@ TEST (stackqTest, pushAndPop){
     for(int i = 4; i >= 0; i--){
         ASSERT_EQ(s1->pop(),i);
     }
+    delete s1;
 }
 
 TEST (stackqTest, involved1){
@@ -64,6 +69,8 @@ TEST (stackqTest, involved1){
         ASSERT_EQ(i,first);
         ASSERT_EQ(first,second);
     }
+    delete s1;
+    delete s2;
 }
 
 TEST (stackqTest, involved2){
@@ -78,6 +85,7 @@ TEST (stackqTest, involved2){
     for (int i = 9; i >= 5; i--){
         ASSERT_EQ(s1->pop(),std::vector<int> (100,i));
     }
+    delete s1;
 }
 
 int main(int argc, char **argv)

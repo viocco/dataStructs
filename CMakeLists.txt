@@ -47,27 +47,27 @@ endif()
 
 # --------------- INDIVIDUAL TESTS -------------------
 # Uncomment whichever test you want to run
-#add_executable(dataStructsTestStack test/stackTest.cpp)
-#target_link_libraries(dataStructsTestStack gtest_main)
-#
-#add_executable(dataStructsTestQueue test/queueTest.cpp)
-#target_link_libraries(dataStructsTestQueue gtest_main)
-#
-#add_executable(dataStructsTestStackLL test/stackLLTest.cpp)
-#target_link_libraries(dataStructsTestStackLL gtest_main)
-#
-#add_executable(dataStructsTestQueueLL test/queueLLTest.cpp)
-#target_link_libraries(dataStructsTestQueueLL gtest_main)
-#
-#add_executable(dataStructsTestQueueS test/QueueSTest.cpp)
-#target_link_libraries(dataStructsTestQueueS gtest_main)
-#
-#add_executable(dataStructsTestStackQ test/stackqTest.cpp)
-#target_link_libraries(dataStructsTestStackQ gtest_main)
-#
-#add_executable(dataStructsTestLinkedList test/LinkedListTest.cpp)
-#target_link_libraries(dataStructsTestLinkedList gtest_main)
-#
+add_executable(dataStructsTestStack test/stackTest.cpp)
+target_link_libraries(dataStructsTestStack gtest_main)
+
+add_executable(dataStructsTestQueue test/queueTest.cpp)
+target_link_libraries(dataStructsTestQueue gtest_main)
+
+add_executable(dataStructsTestStackLL test/stackLLTest.cpp)
+target_link_libraries(dataStructsTestStackLL gtest_main)
+
+add_executable(dataStructsTestQueueLL test/queueLLTest.cpp)
+target_link_libraries(dataStructsTestQueueLL gtest_main)
+
+add_executable(dataStructsTestQueueS test/QueueSTest.cpp)
+target_link_libraries(dataStructsTestQueueS gtest_main)
+
+add_executable(dataStructsTestStackQ test/stackqTest.cpp)
+target_link_libraries(dataStructsTestStackQ gtest_main)
+
+add_executable(dataStructsTestLinkedList test/LinkedListTest.cpp)
+target_link_libraries(dataStructsTestLinkedList gtest_main)
+
 add_executable(dataStructsTestLinkedList1P test/LinkedList1PTest.cpp)
 target_link_libraries(dataStructsTestLinkedList1P gtest_main)
 

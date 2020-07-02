@@ -8,13 +8,14 @@
 TEST(LinkedList1PTest, initList){
     LinkedList1P<int> *ll = new LinkedList1P<int>();
     ASSERT_TRUE(ll->size() == 0);
-
+    delete ll;
 }
 
 TEST(LinkedListTest1P, insert){
     LinkedList1P<int> *ll = new LinkedList1P<int>();
     ll->insert(5);
     ASSERT_TRUE(ll->size() == 1);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, insertLast){
@@ -23,6 +24,7 @@ TEST(LinkedList1PTest, insertLast){
     ASSERT_TRUE(ll->size() == 1);
     ll->insertLast(4);
     ASSERT_TRUE(ll->size() == 2);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, linked_delete){
@@ -30,6 +32,7 @@ TEST(LinkedList1PTest, linked_delete){
     ll->insert(5);
     ll->insert(6);
     ASSERT_EQ(ll->linked_delete(),6);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, deleteLast){
@@ -37,6 +40,7 @@ TEST(LinkedList1PTest, deleteLast){
     ll->insert(5);
     ll->insert(6);
     ASSERT_EQ(ll->deleteLast(),5);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, deleteLast2){
@@ -45,6 +49,7 @@ TEST(LinkedList1PTest, deleteLast2){
         ll->insert(i);
     }
     ASSERT_EQ(ll->deleteLast(),0);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, insertLast2){
@@ -53,6 +58,7 @@ TEST(LinkedList1PTest, insertLast2){
         ll->insertLast(i);
     }
     ASSERT_EQ(ll->deleteLast(),999);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, insertLastDelete){
@@ -61,6 +67,7 @@ TEST(LinkedList1PTest, insertLastDelete){
         ll->insertLast(i);
     }
     ASSERT_EQ(ll->linked_delete(),0);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, insertAfter){
@@ -75,6 +82,7 @@ TEST(LinkedList1PTest, insertAfter){
     }
     ASSERT_EQ(ll->linked_delete(),-100);
     ASSERT_EQ(ll->linked_delete(),11);
+    delete ll;
 }
 
 TEST(LinkedList1PTest, testEquals){
@@ -90,6 +98,8 @@ TEST(LinkedList1PTest, testEquals){
     }
     ASSERT_EQ(ll2->linked_delete(),0);
     ASSERT_TRUE(*ll1 == *ll2);
+    delete ll1;
+    delete ll2;
 }
 
 TEST(LinkedList1PTest, complexDataType){
@@ -105,6 +115,7 @@ TEST(LinkedList1PTest, complexDataType){
         ASSERT_EQ(ll1->linked_delete(),std::vector<int> (100,i));
     }
     ASSERT_TRUE(ll1->size() == 0);
+    delete ll1;
 }
 
 int main(int argc, char **argv)

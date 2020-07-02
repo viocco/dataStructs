@@ -12,6 +12,7 @@ TEST(stackLLTest, initStack){
     stackLL<int> *s1 = new stackLL<int>();
     ASSERT_FALSE(s1->isFull());
     ASSERT_TRUE(s1->isEmpty());
+    delete s1;
 }
 
 TEST(stackLLTest, stackPush){
@@ -19,12 +20,14 @@ TEST(stackLLTest, stackPush){
     s1->push(5);
     ASSERT_FALSE(s1->isEmpty());
     ASSERT_FALSE(s1->isFull());
+    delete s1;
 }
 
 TEST(stackLLTest, stackPop){
     stackLL<int> *s1 = new stackLL<int>();
     s1->push(5);
     ASSERT_EQ(s1->pop(),5);
+    delete s1;
 }
 
 TEST(stackLLTest, involved1){
@@ -46,6 +49,8 @@ TEST(stackLLTest, involved1){
         ASSERT_EQ(i,first);
         ASSERT_EQ(first,second);
     }
+    delete s1;
+    delete s2;
 }
 
 TEST(stackLLTest, involved2){
@@ -60,6 +65,7 @@ TEST(stackLLTest, involved2){
     for (int i = 9; i >= 5; i--){
         ASSERT_EQ(s1->pop(),std::vector<int> (100,i));
     }
+    delete s1;
 }
 
 int main(int argc, char **argv)
