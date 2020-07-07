@@ -5,20 +5,22 @@
 #ifndef DATASTRUCTS_QUEUE_H
 #define DATASTRUCTS_QUEUE_H
 
+#include "ArrayList.h"
+
 template<class T>
 class queue{
 public:
 
     queue(){
-        arr = new T[100000];
+        arr = new ArrayList<T>();
         head = 0;
         tail = 0;
-        capacity = 100000;
+        capacity = arr->get_capacity();
         size = 0;
     }
 
     explicit queue(int capacity){
-        arr = new T[capacity];
+        arr = new ArrayList<T>(capacity);
         head = 0;
         tail = 0;
         size = 0;
@@ -26,14 +28,14 @@ public:
     }
 
     ~queue(){
-        delete[] arr;
+        delete arr;
     }
 
     T dequeue(){
         if(isEmpty())
             throw "Dequeueing off empty queue: Underflow";
         else{
-            T temp = arr[head];
+            T temp = (*arr)[head];
             if (head == capacity - 1)
                 head = 0;
             else
@@ -47,7 +49,7 @@ public:
         if(isFull())
             throw "enqueueing onto full queue: Overflow!";
         else{
-            arr[tail] = obj;
+            (*arr)[tail] = obj;
             if (tail == capacity-1){
                 tail = 0;
             } else {
@@ -88,9 +90,9 @@ public:
             return false;
         }
         for (int i = head; i < tail; i++){
-            T left = this->arr[i];
-            T right = rhs.arr[i];
-            if (this->arr[i] != rhs.arr[i]){
+            T left = (*this->arr)[i];
+            T right = (*rhs.arr)[i];
+            if ((*this->arr)[i] != (*rhs.arr)[i]){
                 return false;
             }
         }
@@ -98,7 +100,7 @@ public:
     }
 
 private:
-    T *arr;
+    ArrayList<T> *arr;
     int head{};
     int tail{};
     int size{};

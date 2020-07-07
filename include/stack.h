@@ -5,31 +5,32 @@
 #ifndef DATASTRUCTS_STACK_H
 #define DATASTRUCTS_STACK_H
 
+#include "ArrayList.h"
+
 template<class T>
 class stack{
 public:
-
     stack(){
-        arr = new T[100000];
+        arr = new ArrayList<T>();
         top = 0;
-        s = 100000;
+        s = arr->get_capacity();
     }
 
-    explicit stack(int size){
-        arr = new T[size];
+    explicit stack(int cap){
+        arr = new ArrayList<T>(cap);
         top = 0;
-        s = size;
+        s = cap;
     }
 
     ~stack(){
-        delete[] arr;
+        delete arr;
     }
     T pop(){
         if(isEmpty())
             throw "popping off empty stack: Underflow!";
         else{
             top = top - 1;
-            T temp = arr[top];
+            T temp = (*arr)[top];
             return temp;
         }
     }
@@ -38,7 +39,7 @@ public:
         if(isFull())
             throw "Pushing onto full stack: Overflow!";
         else{
-            arr[top] = obj;
+            (*arr)[top] = obj;
             top = top + 1;
         }
     }
@@ -64,9 +65,9 @@ public:
             return false;
         }
         for (int i = 0; i < top; i++){
-            T left = this->arr[i];
-            T right = rhs.arr[i];
-            if (this->arr[i] != rhs.arr[i]){
+            T left = (*this->arr)[i];
+            T right = (*rhs.arr)[i];
+            if (!((*this->arr)[i] == (*rhs.arr)[i])){
                 return false;
             }
         }
@@ -74,7 +75,7 @@ public:
     }
 
 private:
-    T *arr;
+    ArrayList<T> *arr;
     int top{};
     int s{};
 };

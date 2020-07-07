@@ -14,6 +14,12 @@ class ArrayList {
             capacity = 1;
         }
 
+        explicit ArrayList(int cap){
+            arr = new T[cap];
+            size = 0;
+            capacity = cap;
+        }
+
         ~ArrayList(){
             delete [] arr;
         }
@@ -65,4 +71,4 @@ private:
 };
 
 
-#endif //DATASTRUCTS_ARRAYLIST_H
+#endif
