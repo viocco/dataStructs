@@ -2,9 +2,6 @@
 // Created by Vittorio Iocco on 6/25/20.
 //
 
-#ifndef DATASTRUCTS_LINKEDLIST_H
-#define DATASTRUCTS_LINKEDLIST_H
-
 // ::::::::::::::::::: DoublePointer Implimentation :::::::::::::::::
 //template<class T>
 //class LinkedList{
